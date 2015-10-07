@@ -140,7 +140,7 @@ exports.findAll = function (req, res) {
 exports.GetBookPageCount = function (req, res) {
     var id = req.params.id;
     var lang = req.params.lang;
-     if ((lang != 'ua') && (lang != 'ru') && (lang != 'en')) { res.send({ status: '-55', text: 'Uncorrect lang' }); }
+     if ((lang != 'ua') && (lang != 'ru') && (lang != 'en')) { res.send({ status: '-5', text: 'Uncorrect lang' }); }
     //Отримуємо список книг
     request({ uri: item_url, method: 'GET', encoding: 'binary', json: true },
             function (err, result, page) {
