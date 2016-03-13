@@ -5,7 +5,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>AugurBook_Server</Name>
     <RootNamespace>ExpressApp3</RootNamespace>
-    <NameOfLastUsedPublishProfile>augurbook2</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>augurbook</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -34,6 +34,7 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="routes\books2.js" />
+    <Compile Include="routes\bot.js" />
     <Compile Include="routes\mongoose.js" />
     <Compile Include="routes\books.js" />
     <Compile Include="routes\index.js" />
@@ -42,7 +43,10 @@
     <None Include="augurbook.pubxml" />
     <None Include="augurbook2.pubxml" />
     <None Include="augurbook3.pubxml" />
+    <Content Include="routes\cert\AugurBook.crt" />
+    <Content Include="routes\cert\AugurBook_PEM.cer" />
     <Content Include="config.json" />
+    <None Include="LocalFolder.pubxml" />
     <Content Include="package.json" />
     <Content Include="public\stylesheets\style.styl" />
     <Content Include="README.md" />
@@ -57,6 +61,7 @@
     <Folder Include="public\javascripts\" />
     <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
+    <Folder Include="routes\cert\" />
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>

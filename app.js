@@ -11,7 +11,7 @@ var path = require('path');
 var pkgs = require('./routes/pkgs.js');
 //var books = require('./routes/books.js'); //Поточний набір скриптів
 var books2 = require('./routes/books2.js'); //Запасний набір скриптів (для версії API 3.0) 
-
+var bot = require('./routes/bot.js'); //Модуль для Telegram-bot
 
 var app = express();
 
@@ -43,7 +43,15 @@ app.put('/books/V2/:id', pkgs.updatePkg);
 app.delete('/books/V2/:id', pkgs.deletePkg);
 app.get('/books/V2/getaugur/:id&:page_id&:row_id', pkgs.getBookAugur);
 
+//=============================================
+//Telegram bot routes
+//=============================================
+app.get('/bot/setwebhook', bot.setWebHook);
+app.get('/bot/delwebhook', bot.deleteWebHook);
+app.get('/bot/messages', bot.getMessages);
+app.get('/bot/msg', bot.Msg);
 
+//=============================================
 
 //app.get('/books', books.findAll);
 //app.get('/books/:id', books.findById);
@@ -59,14 +67,12 @@ app.get('/books/V2/getaugur/:id&:page_id&:row_id', pkgs.getBookAugur);
 //===============================
 app.get('/books/V3', books2.findAll);
 app.get('/books/V3/:id', books2.findById);
-
 app.get('/books/V3/getaugur/:id&:page_id&:row_id&:lang', books2.getBookAugur);
-
-
 app.get('/books/V3/getpagecount/:id&:lang', books2.GetBookPageCount);
-
 //==================================
 
 http.createServer(app).listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
+
+
